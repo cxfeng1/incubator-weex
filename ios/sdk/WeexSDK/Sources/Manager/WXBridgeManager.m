@@ -28,6 +28,7 @@
 #import "WXResourceRequest.h"
 #import "WXResourceLoader.h"
 #import "WXDebugTool.h"
+#import "WXNativeInstance.h"
 
 @interface WXBridgeManager ()
 
@@ -305,11 +306,15 @@ void WXPerformBlockOnBridgeThread(void (^block)())
         return;
     }
     
-    NSArray *args = @[ref, type, params?:@{}, domChanges?:@{}];
     WXSDKInstance *instance = [WXSDKManager instanceForID:instanceId];
-    
-    WXCallJSMethod *method = [[WXCallJSMethod alloc] initWithModuleName:nil methodName:@"fireEvent" arguments:args instance:instance];
-    [self callJsMethod:method];
+    if ([instance isKindOfClass:[WXNativeInstance class]]
+        &&  ((WXNativeInstance *)instance).onEventFired) {
+        ((WXNativeInstance *)instance).onEventFired(type, ref, params);
+    } else {
+        NSArray *args = @[ref, type, params?:@{}, domChanges?:@{}];
+        WXCallJSMethod *method = [[WXCallJSMethod alloc] initWithModuleName:nil methodName:@"fireEvent" arguments:args instance:instance];
+        [self callJsMethod:method];
+    }
 }
 
 - (void)callBack:(NSString *)instanceId funcId:(NSString *)funcId params:(id)params keepAlive:(BOOL)keepAlive

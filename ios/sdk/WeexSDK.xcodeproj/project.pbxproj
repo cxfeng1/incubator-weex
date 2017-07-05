@@ -124,6 +124,8 @@
 		744D61111E49979000B624B3 /* WXFooterComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 744D610F1E49979000B624B3 /* WXFooterComponent.m */; };
 		744D61141E4AF23E00B624B3 /* WXDiffUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 744D61121E4AF23E00B624B3 /* WXDiffUtil.h */; };
 		744D61151E4AF23E00B624B3 /* WXDiffUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 744D61131E4AF23E00B624B3 /* WXDiffUtil.m */; };
+		7458E8D41F0A48BA00660097 /* WXNativeInstance.h in Headers */ = {isa = PBXBuildFile; fileRef = 7458E8D21F0A48BA00660097 /* WXNativeInstance.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7458E8D51F0A48BA00660097 /* WXNativeInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 7458E8D31F0A48BA00660097 /* WXNativeInstance.m */; };
 		745B2D681E5A8E1E0092D38A /* WXMultiColumnLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 745B2D5E1E5A8E1E0092D38A /* WXMultiColumnLayout.h */; };
 		745B2D691E5A8E1E0092D38A /* WXMultiColumnLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 745B2D5F1E5A8E1E0092D38A /* WXMultiColumnLayout.m */; };
 		745B2D6A1E5A8E1E0092D38A /* WXRecyclerComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 745B2D601E5A8E1E0092D38A /* WXRecyclerComponent.h */; };
@@ -436,6 +438,8 @@
 		744D610F1E49979000B624B3 /* WXFooterComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXFooterComponent.m; sourceTree = "<group>"; };
 		744D61121E4AF23E00B624B3 /* WXDiffUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXDiffUtil.h; sourceTree = "<group>"; };
 		744D61131E4AF23E00B624B3 /* WXDiffUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXDiffUtil.m; sourceTree = "<group>"; };
+		7458E8D21F0A48BA00660097 /* WXNativeInstance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXNativeInstance.h; sourceTree = "<group>"; };
+		7458E8D31F0A48BA00660097 /* WXNativeInstance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXNativeInstance.m; sourceTree = "<group>"; };
 		745B2D5E1E5A8E1E0092D38A /* WXMultiColumnLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WXMultiColumnLayout.h; path = WeexSDK/Sources/Component/Recycler/WXMultiColumnLayout.h; sourceTree = SOURCE_ROOT; };
 		745B2D5F1E5A8E1E0092D38A /* WXMultiColumnLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WXMultiColumnLayout.m; path = WeexSDK/Sources/Component/Recycler/WXMultiColumnLayout.m; sourceTree = SOURCE_ROOT; };
 		745B2D601E5A8E1E0092D38A /* WXRecyclerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WXRecyclerComponent.h; path = WeexSDK/Sources/Component/Recycler/WXRecyclerComponent.h; sourceTree = SOURCE_ROOT; };
@@ -982,6 +986,8 @@
 				77D161231C02DDD10010B15B /* WXSDKInstance.m */,
 				DCF343651E49CAEE00A2FB34 /* WXJSExceptionInfo.h */,
 				DCF343661E49CAEE00A2FB34 /* WXJSExceptionInfo.m */,
+				7458E8D21F0A48BA00660097 /* WXNativeInstance.h */,
+				7458E8D31F0A48BA00660097 /* WXNativeInstance.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1341,6 +1347,7 @@
 				D334510C1D3E19B80083598A /* WXCanvasModule.h in Headers */,
 				742AD73A1DF98C8B007DC46C /* WXResourceLoader.h in Headers */,
 				746319291C71B92600EFEBD4 /* WXModalUIModule.h in Headers */,
+				7458E8D41F0A48BA00660097 /* WXNativeInstance.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1587,6 +1594,7 @@
 				C4D872261E5DDF7500E39BC1 /* WXBoxShadow.m in Sources */,
 				746319031C60AFC100EFEBD4 /* WXThreadSafeCounter.m in Sources */,
 				74A4BAA71CB4F98300195969 /* WXStreamModule.m in Sources */,
+				7458E8D51F0A48BA00660097 /* WXNativeInstance.m in Sources */,
 				744D610D1E49978200B624B3 /* WXHeaderComponent.m in Sources */,
 				59597F991D2A041700EE9317 /* WXDebugLoggerBridge.m in Sources */,
 				77E659F21C0C3612008B8775 /* WXModuleFactory.m in Sources */,

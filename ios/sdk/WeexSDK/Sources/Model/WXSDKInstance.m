@@ -62,7 +62,6 @@ typedef enum : NSUInteger {
     
     WXResourceLoader *_mainBundleLoader;
     WXComponentManager *_componentManager;
-    WXRootView *_rootView;
     WXThreadSafeMutableDictionary *_moduleEventObservers;
 }
 

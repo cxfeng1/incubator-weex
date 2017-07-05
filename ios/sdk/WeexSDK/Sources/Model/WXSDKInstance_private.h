@@ -21,8 +21,13 @@
 #import "WXSDKInstance.h"
 #import "WXComponentManager.h"
 #import "WXModuleMethod.h"
+#import "WXRootView.h"
 
 @interface WXSDKInstance ()
+{
+    @protected
+    WXRootView *_rootView;
+}
 
 @property (nonatomic, assign) CGFloat viewportWidth;
 

@@ -23,6 +23,7 @@
 #import <WeexSDK/WXUtility.h>
 #import <WeexSDK/WXDebugTool.h>
 #import <WeexSDK/WXSDKManager.h>
+#import <WeexSDK/WXNativeInstance.h>
 #import "UIViewController+WXDemoNaviBar.h"
 #import "DemoDefine.h"
 #import "WXPrerenderManager.h"
@@ -167,6 +168,93 @@
     NSURL *URL = [self testURL: [self.url absoluteString]];
     NSString *randomURL = [NSString stringWithFormat:@"%@%@random=%d",URL.absoluteString,URL.query?@"&":@"?",arc4random()];
     [_instance renderWithURL:[NSURL URLWithString:randomURL] options:@{@"bundleUrl":URL.absoluteString} data:nil];
+}
+
+- (void)renderNativeInstance
+{
+    CGFloat width = self.view.frame.size.width;
+    [_instance destroyInstance];
+    WXNativeInstance *instance = [[WXNativeInstance alloc] init];
+    
+    _instance = instance;
+    
+    instance.viewController = self;
+    instance.frame = CGRectMake(self.view.frame.size.width-width, 0, width, _weexHeight);
+    
+    __weak typeof(self) weakSelf = self;
+    instance.onCreate = ^(UIView *view) {
+        [weakSelf.weexView removeFromSuperview];
+        weakSelf.weexView = view;
+        [weakSelf.view addSubview:weakSelf.weexView];
+        UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, weakSelf.weexView);
+    };
+    
+    instance.onFailed = ^(NSError *error) {
+        NSLog(@"Render Failed...");
+    };
+    
+    instance.renderFinish = ^(UIView *view) {
+        NSLog(@"Render Finish...");
+    };
+    
+    instance.onEventFired = ^(NSString *eventName, NSString *elementRef, NSDictionary *parameters) {
+        NSLog(@"Fire an event:%@ on element:%@, parameters:%@", eventName, elementRef, parameters);
+    };
+    
+    NSDictionary *bodyData =
+    @{
+        @"ref":@"_root",
+        @"type":@"list",
+        @"attr":@{},
+        @"style":@{},
+        @"event":@[]
+    };
+    [instance createBody:bodyData];
+    
+    NSDictionary *elementData =
+    @{
+        @"ref" : @"4",
+        @"type" : @"cell",
+        @"attr" : @{
+            @"append" : @"tree"
+        },
+        @"style" : @{},
+        @"children" : @[@{
+            @"ref" : @"5",
+            @"type" : @"div",
+            @"attr" : @{},
+            @"style" : @{
+                @"paddingRight" : @35,
+                @"paddingBottom" : @25,
+                @"height" : @160,
+                @"backgroundColor" : @"#ffffff",
+                @"borderBottomWidth" : @1,
+                @"borderColor" : @"#dddddd",
+                @"justifyContent" : @"center",
+                @"paddingLeft" : @35,
+                @"paddingTop" : @25
+            },
+            @"event" : @[
+                @"click",
+                @"touchstart",
+                @"touchend"
+            ],
+            @"children" : @[@{
+                @"ref" : @"6",
+                @"type" : @"text",
+                @"attr" : @{
+                    @"value" : @"Hello World",
+                },
+                @"style" : @{
+                    @"fontSize" : @48,
+                    @"color" : @"#555555"
+                }
+            }],
+        }],
+    };
+    
+    [instance addElement:elementData toParent:@"_root" atIndex:-1];
+    [instance createFinish];
 }
 
 - (void)updateInstanceState:(WXState)state

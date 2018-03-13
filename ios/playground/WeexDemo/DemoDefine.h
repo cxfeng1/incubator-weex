@@ -29,7 +29,7 @@
 
 #define DEMO_URL(path) [NSString stringWithFormat:@"http://%@:12580/%s", DEMO_HOST, #path]
 
-#define HOME_URL [NSString stringWithFormat:@"http://%@:12580/examples/build/vue/index.js", DEMO_HOST]
+#define HOME_URL @"http://dotwe.org/raw/dist/93daf64b383a69301b7efe87e0cebe0b.bundle.wx"
 
 #define BUNDLE_URL [NSString stringWithFormat:@"file://%@/bundlejs/landing.weex.js",[NSBundle mainBundle].bundlePath]
 

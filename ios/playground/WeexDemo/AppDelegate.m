@@ -146,7 +146,7 @@
 - (UIViewController *)demoController
 {
     UIViewController *demo = [[WXDemoViewController alloc] init];
-    ((WXDemoViewController *)demo).url = [NSURL URLWithString:BUNDLE_URL];
+    ((WXDemoViewController *)demo).url = [NSURL URLWithString:HOME_URL];
     return demo;
 }
 

@@ -82,6 +82,7 @@
 // register some default components when the engine initializes.
 + (void)_registerDefaultComponents
 {
+    [self registerComponent:@"g-div" withClass:NSClassFromString(@"WXGPUComponent") withProperties:nil];
     [self registerComponent:@"container" withClass:NSClassFromString(@"WXDivComponent") withProperties:nil];
     [self registerComponent:@"div" withClass:NSClassFromString(@"WXComponent") withProperties:nil];
     [self registerComponent:@"text" withClass:NSClassFromString(@"WXTextComponent") withProperties:nil];
